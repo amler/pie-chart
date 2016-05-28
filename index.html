@@ -1,0 +1,38 @@
+<html>
+<head>
+	<title>d3js test</title>
+	<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+</head>
+<body>
+	<section>
+		<p>draw svg</p>
+
+	</section>
+	<script>
+
+	//want to create a canvas for the svg
+	var canvas = d3.select('section')
+					.append('svg')
+					.attr('width', 500)
+					.attr('height', 500);
+
+	var circle = canvas.append('circle')
+					.attr('cx', 250) // horixontal position so it will be in the center of our svg conainter
+					.attr('cy', 250)//vertical
+					.attr('r', 50)// radius
+					.attr('fill', 'blue');
+// svgs start drawing in the top left corner
+	var rect = canvas.append('rect')					
+					.attr('width', 100)
+					.attr('height', 200)
+					.attr('fill', 'green');
+	var line = canvas.append('line')
+					.attr('x1', 30)
+					.attr('y1', 250)
+					.attr('x2', 400)
+					.attr('y2', 400)
+					.attr('stroke', 'pink')
+					.attr('stroke-width', 5);
+	</script>
+</body>
+</html>
