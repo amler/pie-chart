@@ -9,30 +9,46 @@
 
 	</section>
 	<script>
+var dataArray = [20, 40, 50];
 
 	//want to create a canvas for the svg
 	var canvas = d3.select('section')
 					.append('svg')
 					.attr('width', 500)
 					.attr('height', 500);
+// first session
+// 	var circle = canvas.append('circle')
+// 					.attr('cx', 250) // horixontal position so it will be in the center of our svg conainter
+// 					.attr('cy', 250)//vertical
+// 					.attr('r', 50)// radius
+// 					.attr('fill', 'blue');
+// // svgs start drawing in the top left corner
+// 	var rect = canvas.append('rect')					
+// 					.attr('width', 100)
+// 					.attr('height', 200)
+// 					.attr('fill', 'green');
+// 	var line = canvas.append('line')
+// 					.attr('x1', 30)
+// 					.attr('y1', 250)
+// 					.attr('x2', 400)
+// 					.attr('y2', 400)
+// 					.attr('stroke', 'pink')
+// 					.attr('stroke-width', 5);
 
-	var circle = canvas.append('circle')
-					.attr('cx', 250) // horixontal position so it will be in the center of our svg conainter
-					.attr('cy', 250)//vertical
-					.attr('r', 50)// radius
-					.attr('fill', 'blue');
-// svgs start drawing in the top left corner
-	var rect = canvas.append('rect')					
-					.attr('width', 100)
-					.attr('height', 200)
-					.attr('fill', 'green');
-	var line = canvas.append('line')
-					.attr('x1', 30)
-					.attr('y1', 250)
-					.attr('x2', 400)
-					.attr('y2', 400)
-					.attr('stroke', 'pink')
-					.attr('stroke-width', 5);
+// second session - bar chart
+// returns empty selection connect to data
+var bars = canvas.selectAll('rect')
+				.data(dataArray) // bind data to emptyarray
+				.enter() // returns placeholders for each data element for which no corresponding dom elements on the page -  loop
+				.append('rect') // return a rect for each data elm
+				.attr('width', function(dataElm) {
+					return dataElm * 10; // from the data array
+				})
+				.attr('height', 50)
+				.attr('y', function(dataElm, i){
+					return i * 60
+				});
+
 	</script>
 </body>
 </html>
